@@ -47,7 +47,7 @@ resource "azurerm_storage_account_network_rules" "tfvars" {
 
 resource "null_resource" "tfvars" {
   provisioner "local-exec" {
-    interpreter = ["/bin/bash", "-c"]
+    interpreter = [local.bash, "-c"]
     command     = "./scripts/check-tfvars-against-remote.sh -c \"${azurerm_storage_container.tfvars.name}\" -a \"${azurerm_storage_account.tfvars.name}\" -f \"${local.tfvars_filename}\""
   }
 
@@ -58,7 +58,7 @@ resource "null_resource" "tfvars" {
 
 resource "null_resource" "waftfvars" {
   provisioner "local-exec" {
-    interpreter = ["/bin/bash", "-c"]
+    interpreter = [local.bash, "-c"]
     command     = "./scripts/check-tfvars-against-remote.sh -c \"${azurerm_storage_container.tfvars.name}\" -a \"${azurerm_storage_account.tfvars.name}\" -f \"waf.tfvars\""
   }
 

@@ -93,5 +93,8 @@ locals {
     }
   }
 
+  is_windows = can(regex("^[A-Za-z]:", abspath(path.root)))
+  bash       = local.is_windows ? "C:/Program Files/Git/bin/bash.exe" : "/bin/bash"
+
   tags = var.tags
 }
