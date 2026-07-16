@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "dfe-frontend": "^2.0.1",
-    "govuk-frontend": "^5.3.1"
+    "govuk-frontend": "^6.0.0"
   }
 }
